@@ -25,8 +25,11 @@ exports.create = async (req, res) => {
 };
 
 exports.getAll = async (req, res) => {
+  let lim = req.query.limit;
+  let featured = req.query.featured;
+  let articles;
   try {
-    const articles = await Model.Article.find().sort({ createdAt: -1 });
+    articles = await Model.Article.find().sort({ createdAt: -1 }).limit(lim);
     res.status(200).json(articles);
   } catch (err) {
     res.status(400).json(err.message);
