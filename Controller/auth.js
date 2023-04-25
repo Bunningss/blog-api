@@ -21,8 +21,8 @@ exports.login = async (req, res) => {
         id: user._id,
         Name: user.Name,
         Email: user.Email,
-        isAuthor: user.isAuthor,
-        isAdmin: user.isAdmin,
+        IsAuthor: user.IsAuthor,
+        IsAdmin: user.IsAdmin,
       },
       process.env.JWT_SEC,
       {

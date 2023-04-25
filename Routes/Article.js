@@ -6,6 +6,11 @@ router.get("/", controller.article.getAll);
 router.get("/:id", controller.article.getOne);
 router.post("/create", verifyToken, controller.article.create);
 router.post(
+  "/delete/:articleId",
+  verifyTokenAndAuthorization,
+  controller.article.delete
+);
+router.post(
   "/update/:id",
   verifyTokenAndAuthorization,
   controller.article.update

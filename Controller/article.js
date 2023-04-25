@@ -32,6 +32,15 @@ exports.create = async (req, res) => {
   }
 };
 
+exports.delete = async (req, res) => {
+  try {
+    await Model.Article.findByIdAndDelete(req.params.articleId);
+    res.status(200).json("Deleted Successfully");
+  } catch (err) {
+    res.status(400).json(err.message);
+  }
+};
+
 exports.getAll = async (req, res) => {
   let lim = req.query.limit;
   let featured = req.query.featured;
