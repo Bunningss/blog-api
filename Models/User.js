@@ -5,8 +5,8 @@ const userSchema = new mongoose.Schema(
     Name: {
       type: String,
       required: true,
-      min: 5,
-      max: 256,
+      minLength: 5,
+      maxLength: 256,
     },
     Profile: {
       type: String,
@@ -17,13 +17,13 @@ const userSchema = new mongoose.Schema(
       required: true,
       unique: true,
       minLength: 8,
-      max: 256,
+      maxLength: 256,
     },
     Password: {
       type: String,
       required: true,
-      min: 8,
-      max: 256,
+      minLength: 8,
+      maxLength: 256,
     },
     IsAuthor: {
       type: Boolean,
@@ -39,7 +39,7 @@ const userSchema = new mongoose.Schema(
     },
     Articles: {
       type: [mongoose.Schema.Types.ObjectId],
-      ref: "Articles",
+      ref: "Article",
       required: false,
     },
   },

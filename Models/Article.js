@@ -5,8 +5,8 @@ const articleSchema = new mongoose.Schema(
     Title: {
       type: String,
       required: true,
-      min: 10,
-      max: 256,
+      minLength: 10,
+      maxLength: 256,
     },
     Image: {
       type: String,
@@ -19,7 +19,7 @@ const articleSchema = new mongoose.Schema(
     Article: {
       type: String,
       required: true,
-      min: 15,
+      minLength: 15,
     },
     Author: {
       type: mongoose.Schema.Types.ObjectId,
@@ -30,4 +30,4 @@ const articleSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model("article", articleSchema);
+module.exports = mongoose.model("Article", articleSchema);

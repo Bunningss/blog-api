@@ -20,7 +20,14 @@ exports.create = async (req, res) => {
     );
     res.status(200).json("Article Saved.");
   } catch (err) {
-    res.status(400).json(err.message);
+    // Validation Erro Handling
+    if (err.name === "ValidationError") {
+      // const message = Object.values(err.errors).map((v) => v.message);
+      // console.log(message);
+      res.status(400).json("Please fill in all the fields properly.");
+    } else {
+      res.status(400).json(err.message);
+    }
   }
 };
 

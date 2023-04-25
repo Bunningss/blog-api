@@ -24,7 +24,10 @@ exports.login = async (req, res) => {
         isAuthor: user.isAuthor,
         isAdmin: user.isAdmin,
       },
-      process.env.JWT_SEC
+      process.env.JWT_SEC,
+      {
+        expiresIn: 3600,
+      }
     );
     res.status(200).json({ userData: others, accessToken });
   } catch (err) {
