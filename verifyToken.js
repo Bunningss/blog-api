@@ -16,8 +16,6 @@ const verifyToken = (req, res, next) => {
 
 const verifyTokenAndAuthorization = (req, res, next) => {
   verifyToken(req, res, () => {
-    console.log(req.user.Articles.includes(req.params.articleId));
-    console.log(req.user);
     if (req.user.Articles.includes(req.params.articleId) || req.user.IsAdmin) {
       next();
     } else {
