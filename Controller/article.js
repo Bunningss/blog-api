@@ -9,6 +9,7 @@ exports.create = async (req, res) => {
       Category,
       Article,
       Author: req.user.id,
+      AuthorName: req.user.Name,
     });
     await article.save();
     await Model.User.findByIdAndUpdate(

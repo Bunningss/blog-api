@@ -26,6 +26,10 @@ const articleSchema = new mongoose.Schema(
       ref: "User",
       required: true,
     },
+    AuthorName: {
+      type: String,
+      required: true,
+    },
   },
   { timestamps: true }
 );
