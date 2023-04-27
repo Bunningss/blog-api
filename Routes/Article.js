@@ -3,7 +3,12 @@ const controller = require("../Controller/index");
 const { verifyToken, verifyTokenAndAuthorization } = require("../verifyToken");
 
 router.get("/", controller.article.getAll);
-router.get("/:id", controller.article.getOne);
+router.get("/article/:id", controller.article.getOne);
+router.get(
+  "/user-articles",
+  verifyTokenAndAuthorization,
+  controller.article.getUserArticles
+);
 router.post("/create", verifyToken, controller.article.create);
 router.delete(
   "/delete/:articleId",

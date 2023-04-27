@@ -1,3 +1,4 @@
+const { mongoose } = require("mongoose");
 const Model = require("../Models/index");
 
 exports.create = async (req, res) => {
@@ -48,6 +49,17 @@ exports.getAll = async (req, res) => {
   try {
     articles = await Model.Article.find().sort({ createdAt: -1 }).limit(lim);
     res.status(200).json(articles);
+  } catch (err) {
+    res.status(400).json(err.message);
+  }
+};
+
+exports.getUserArticles = async (req, res) => {
+  try {
+    const userArticles = await Model.Article.find({
+      Author: new mongoose.Types.ObjectId(req.query.userId),
+    });
+    res.status(200).json(userArticles);
   } catch (err) {
     res.status(400).json(err.message);
   }
