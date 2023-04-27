@@ -14,7 +14,7 @@ exports.login = async (req, res) => {
     if (pass !== req.body.Password)
       return res.status(400).json("Invalid email or password.");
 
-    const { Password, _id, createdAt, updatedAt, __v, ...others } = user._doc;
+    const { Password, createdAt, updatedAt, __v, ...others } = user._doc;
 
     const accessToken = jwt.sign(
       {

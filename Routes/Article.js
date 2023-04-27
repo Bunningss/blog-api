@@ -5,12 +5,12 @@ const { verifyToken, verifyTokenAndAuthorization } = require("../verifyToken");
 router.get("/", controller.article.getAll);
 router.get("/:id", controller.article.getOne);
 router.post("/create", verifyToken, controller.article.create);
-router.post(
+router.delete(
   "/delete/:articleId",
   verifyTokenAndAuthorization,
   controller.article.delete
 );
-router.post(
+router.put(
   "/update/:id",
   verifyTokenAndAuthorization,
   controller.article.update
