@@ -5,7 +5,7 @@ const articleSchema = new mongoose.Schema(
     Title: {
       type: String,
       required: true,
-      minLength: 10,
+      minLength: 5,
       maxLength: 256,
     },
     Image: {
