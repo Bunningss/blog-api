@@ -3,11 +3,11 @@ const Model = require("../Models/index");
 
 exports.create = async (req, res) => {
   try {
-    const { Title, Image, Category, Article } = req.body;
+    const { Title, Image, Tags, Article } = req.body;
     const article = new Model.Article({
       Title,
       Image,
-      Category,
+      Tags,
       Article,
       Author: req.user.id,
       AuthorName: req.user.Name,

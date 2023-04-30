@@ -12,8 +12,8 @@ const articleSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    Category: {
-      type: String,
+    Tags: {
+      type: Array,
       required: true,
     },
     Article: {
